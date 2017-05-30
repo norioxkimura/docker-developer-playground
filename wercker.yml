@@ -1,0 +1,17 @@
+---
+box: phusion/baseimage:0.9.20
+
+build:
+   steps:
+    - script:
+         code: true
+deploy:
+   steps:
+    - script:
+         code: ./initialize
+    - internal/docker-push:
+         username: $USERNAME
+         password: $PASSWORD
+         repository: norioxkimura/developer-playground
+         entrypoint: /sbin/my_init --
+         cmd: su - ubuntu
