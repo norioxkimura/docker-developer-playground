@@ -1,8 +1,22 @@
 ---
-box: phusion/baseimage:0.9.20
+box: phusion/baseimage:0.9.22
 
 deploy:
    steps:
+    - script:
+         code: |
+            add-apt-repository ppa:webupd8team/java
+            {
+                echo 'debconf shared/accepted-oracle-license-v1-1 select true'
+                echo 'debconf shared/accepted-oracle-license-v1-1 seen true'
+            } | debconf-set-selections
+            echo 'deb https://dl.bintray.com/sbt/debian /' > /etc/apt/sources.list.d/sbt.list
+            apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+    - install-packages:
+         packages: >-
+            tzdata sudo netcat-openbsd locales-all build-essential bzip2 unzip tree realpath net-tools
+            oracle-java8-installer
+            sbt
     - script:
          code: ./initialize
     - internal/docker-push:

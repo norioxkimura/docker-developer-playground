@@ -12,10 +12,6 @@ in_tz='Asia/Tokyo'
 
 ln -sf "/usr/share/zoneinfo/$in_tz" /etc/localtime && DEBIAN_FRONTEND=noninteractive dpkg-reconfigure tzdata
 
-apt-get update
-apt-get install -y sudo netcat-openbsd locales-all
-apt-get -y dist-upgrade
-
 ###
 
 rm -rf /etc/skel/.??*
@@ -32,26 +28,6 @@ useradd --uid $in_uid --gid $in_gid --create-home --shell /bin/bash --no-log-ini
 adduser ubuntu sudo
 adduser ubuntu adm
 echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ubuntu
-
-###
-
-apt-get install -y build-essential bzip2 unzip tree realpath net-tools
-
-{
-    echo 'debconf shared/accepted-oracle-license-v1-1 select true'
-    echo 'debconf shared/accepted-oracle-license-v1-1 seen true'
-} | debconf-set-selections
-
-apt-add-repository ppa:webupd8team/java
-apt-get update
-apt-get install -y oracle-java8-installer
-
-###
-
-echo 'deb https://dl.bintray.com/sbt/debian /' > /etc/apt/sources.list.d/sbt.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
-apt-get update
-apt-get install -y sbt
 
 ###
 
