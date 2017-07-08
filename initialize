@@ -35,7 +35,8 @@ echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ubuntu
 
 ### essentials
 
-apt-get install -y build-essential bzip2 unzip tree realpath net-tools
+apt-get install -y build-essential bzip2 unzip tree realpath net-tools      \
+                   software-properties-common apt-transport-https curl
 
 {
     echo 'debconf shared/accepted-oracle-license-v1-1 select true'
@@ -93,4 +94,9 @@ done
 cd
 rm -rf t
 ^Z
+
+### Node
+
+curl -sL 'https://deb.nodesource.com/setup_6.x' | bash -
+apt-get install -y nodejs
 
