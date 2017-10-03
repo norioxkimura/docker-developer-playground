@@ -39,12 +39,12 @@ apt-get install -y                                                          \
     build-essential bzip2 unzip tree realpath net-tools                     \
     software-properties-common apt-transport-https curl python sudo
 
+# Java
+
 {
     echo 'debconf shared/accepted-oracle-license-v1-1 select true'
     echo 'debconf shared/accepted-oracle-license-v1-1 seen true'
 } | debconf-set-selections
-
-# Java
 
 apt-add-repository ppa:webupd8team/java
 apt-get update
