@@ -39,6 +39,10 @@ apt-get install -y                                                          \
     build-essential bzip2 unzip tree realpath net-tools                     \
     software-properties-common apt-transport-https curl python sudo git tig
 
+### Debian
+
+apt-get install -y autoconf automake autotools-dev debhelper dh-make debmake devscripts lintian
+
 # Java
 
 {
