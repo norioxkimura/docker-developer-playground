@@ -37,7 +37,7 @@ echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ubuntu
 
 apt-get install -y                                                          \
     build-essential bzip2 unzip tree realpath net-tools                     \
-    software-properties-common apt-transport-https curl python sudo
+    software-properties-common apt-transport-https curl python sudo git tig
 
 # Java
 
