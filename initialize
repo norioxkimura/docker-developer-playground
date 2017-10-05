@@ -120,3 +120,17 @@ echo 'deb https://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/
 apt-get update
 apt-get install -y yarn
 
+### Go
+
+apt-get install -y golang
+export GOPATH='/go'
+mkdir "$GOPATH"
+mkdir "$GOPATH"/{bin,pkg,src}
+chmod -R 777 "$GOPATH"
+cat <<^Z > /etc/profile.d/golang.sh
+export PATH="\${PATH}:/go/bin"
+export GOPATH='${GOPATH}'
+^Z
+
+go get -u github.com/golang/dep/cmd/dep
+
