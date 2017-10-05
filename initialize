@@ -72,11 +72,11 @@ apt-get install -y sbt
 ### .NET
 
 cat <<'^Z' > /etc/apt/sources.list.d/dotnetdev.list
-deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main
+deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main
 ^Z
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.gpg
 apt-get update
-apt-get install -y dotnet-dev-1.0.4
+apt-get install -y dotnet-sdk-2.0.0
 
 ### Scala
 
