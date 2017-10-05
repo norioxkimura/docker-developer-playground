@@ -13,7 +13,7 @@ in_tz='Asia/Tokyo'
 ln -sf "/usr/share/zoneinfo/$in_tz" /etc/localtime && DEBIAN_FRONTEND=noninteractive dpkg-reconfigure tzdata
 
 apt-get update
-apt-get install -y sudo netcat-openbsd locales-all
+apt-get install -y sudo locales-all
 apt-get -y dist-upgrade
 
 ### user 'ubuntu'
@@ -33,11 +33,19 @@ adduser ubuntu sudo
 adduser ubuntu adm
 echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ubuntu
 
+### PPA
+
+apt-get install -y software-properties-common apt-transport-https
+add-apt-repository ppa:kimura-o/developer-playground
+add-apt-repository ppa:git-core/ppa
+apt-get update
+apt-get -y dist-upgrade
+
 ### essentials
 
 apt-get install -y                                                          \
-    build-essential bzip2 unzip tree realpath net-tools                     \
-    software-properties-common apt-transport-https curl python sudo git tig
+    build-essential bzip2 unzip tree realpath net-tools netcat-openbsd      \
+    curl python git tig
 
 ### Debian
 
