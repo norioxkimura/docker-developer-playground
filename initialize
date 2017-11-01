@@ -128,3 +128,15 @@ export GOPATH='${GOPATH}'
 
 go get -u github.com/golang/dep/cmd/dep
 
+### Protocol Buffers
+
+apt-get install -y protobuf-compiler libprotobuf-dev
+
+### gRPC
+
+go get google.golang.org/grpc
+go get -u github.com/golang/protobuf/protoc-gen-go
+
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+
