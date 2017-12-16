@@ -86,10 +86,10 @@ object App {
 ^^Z
 cat <<'^^Z' > build.sbt
 lazy val a = project in file(".")
-scalaVersion := "2.11.11"
+scalaVersion := "2.12.3"
 ^^Z
 cat <<'^^Z' > project/build.properties
-sbt.version=0.13.15
+sbt.version=1.0.4
 ^^Z
 while ! yes q | sbt update; do
     :
