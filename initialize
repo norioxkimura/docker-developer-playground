@@ -45,7 +45,7 @@ apt-get -y dist-upgrade
 
 apt-get install -y                                                          \
     build-essential bzip2 unzip tree realpath net-tools netcat-openbsd      \
-    curl python git tig
+    curl python git tig jq
 
 ### Debian
 
